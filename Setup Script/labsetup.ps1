@@ -20,6 +20,8 @@ Invoke-Expression 'cmd /c start powershell -Command {
     pause
 }'
 
+
+Write-Host "Completed setup" -ForegroundColor green
 }
 else{
 Write-Host "Please run this in an admin shell" -ForegroundColor Yellow
