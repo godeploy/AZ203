@@ -13,7 +13,7 @@ choco install vscode -y -f
 
 Write-Host "pulling latest course files from github" -ForegroundColor green
 Invoke-Expression 'cmd /c start powershell -Command {
-    cd f:\ `
+    cd f:\ 
     git clone "https://github.com/microsoftlearning/AZ-203-DevelopingSolutionsForMicrosoftAzure"}'
 
 while ("f:\AZ-203-DevelopingSolutionsForMicrosoftAzure\Allfiles" -ne $true )
