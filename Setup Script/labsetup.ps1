@@ -12,8 +12,9 @@ Write-Host "Installing latest version of VScode" -ForegroundColor green
 choco install vscode -y -f
 
 Write-Host "pulling latest course files from github" -ForegroundColor green
-Invoke-Expression 'cmd /c start powershell -Command {git clone "https://github.com/microsoftlearning/AZ-203-DevelopingSolutionsForMicrosoftAzure" f:\ }'
-
+Invoke-Expression 'cmd /c start powershell -Command {
+    cd f:\ `
+    git clone "https://github.com/microsoftlearning/AZ-203-DevelopingSolutionsForMicrosoftAzure"}'
 
 while ("f:\AZ-203-DevelopingSolutionsForMicrosoftAzure\Allfiles" -ne $true )
 {Start-Sleep 1}
