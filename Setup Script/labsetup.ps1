@@ -14,14 +14,11 @@ choco install vscode -y -f
 Write-Host "pulling latest course files from github" -ForegroundColor green
 Invoke-Expression 'cmd /c start powershell -Command {
     cd f:\ 
-    git clone "https://github.com/microsoftlearning/AZ-203-DevelopingSolutionsForMicrosoftAzure"}'
+    git clone "https://github.com/microsoftlearning/AZ-203-DevelopingSolutionsForMicrosoftAzure"
+    Write-Host "Linking the coursefile folder" -ForegroundColor green
+    New-Item -ItemType SymbolicLink -target "f:\AZ-203-DevelopingSolutionsForMicrosoftAzure\Allfiles" -path "f:\allfiles"
+}'
 
-while ("f:\AZ-203-DevelopingSolutionsForMicrosoftAzure\Allfiles" -ne $true )
-{Start-Sleep 1}
-else{
-Write-Host "Linking the coursefile folder" -ForegroundColor green
-New-Item -ItemType SymbolicLink -target "f:\AZ-203-DevelopingSolutionsForMicrosoftAzure\Allfiles" -path "f:\allfiles"
-}
 }
 else{
 Write-Host "Please run this in an admin shell" -ForegroundColor Yellow
