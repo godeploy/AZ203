@@ -2,14 +2,14 @@ if(
 ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 )
 {
-write-host "Getting and installing chocolatey package manager" -ForegroundColor green
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+#write-host "Getting and installing chocolatey package manager" -ForegroundColor green
+#Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-write-host "Installing latest version of git" -ForegroundColor green
-choco install git -params '"/GitAndUnixToolsOnPath"' -y -f 
+#write-host "Installing latest version of git" -ForegroundColor green
+#choco install git -params '"/GitAndUnixToolsOnPath"' -y -f 
 
-Write-Host "Installing latest version of VScode" -ForegroundColor green
-choco install vscode -y -f
+#Write-Host "Installing latest version of VScode" -ForegroundColor green
+#choco install vscode -y -f
 
 Write-Host "pulling latest course files from github to f:\" -ForegroundColor green
 $Env:Path += "C:\Program Files\Git\cmd"
