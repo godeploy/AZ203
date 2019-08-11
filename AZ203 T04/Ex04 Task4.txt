@@ -1,0 +1,15 @@
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+
+public static async Task<IActionResult> Run(HttpRequest req)
+{
+    string connectionString = Environment.GetEnvironmentVariable("StorageConnectionString");
+    CloudStorageAccount account = CloudStorageAccount.Parse(connectionString);
+    CloudBlobClient blobClient = account.CreateCloudBlobClient();
+    CloudBlobContainer container = blobClient.GetContainerReference("drop");
+    CloudBlockBlob blob = container.GetBlockBlobReference("records.json");
+    string content = await blob.DownloadTextAsync();
+    return new OkObjectResult(content);
+}
